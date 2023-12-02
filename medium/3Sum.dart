@@ -1,10 +1,6 @@
-void main() {
-  print(Solution().threeSum([-1, 0, 1, 2, -1, -4]));
-}
-
 class Solution {
   List<List<int>> threeSum(List<int> nums) {
-    nums.sort((a, b) => a - b);
+    nums.sort();
 
     List<List<int>> output = [];
 
@@ -19,7 +15,7 @@ class Solution {
           output.add([nums[i], nums[left], nums[right]]);
           if (nums[left] == nums[left + 1]) left++;
           left++;
-          if (nums[right] == nums[right - 1]) right++;
+          if (nums[right] == nums[right - 1]) right--;
           right--;
         } else if (sum < 0) {
           left++;
